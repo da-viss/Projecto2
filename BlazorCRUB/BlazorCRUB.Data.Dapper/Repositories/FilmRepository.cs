@@ -61,7 +61,7 @@ namespace BlazorCRUB.Data.Dapper.Repositories
         public async Task<bool> UpdateFilm(Film film)
         {
             var db = dbConnection();
-            var sql = @"UPDATE Films SET Title = @Title, Director = @Director, ReleaseDate = @ReleaseDate) WHERE Id = @Id";
+            var sql = @"UPDATE Films SET Title = @Title, Director = @Director, ReleaseDate = @ReleaseDate WHERE Id = @Id";
 
             var result = await db.ExecuteAsync(sql.ToString(), new { film.Title, film.Director, film.ReleaseDate, film.Id });
             return result > 0;
